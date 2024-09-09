@@ -38,12 +38,9 @@ public class Game  {
         while(playing){
             bufferedImage = new BufferedImage(800,600,
                     BufferedImage.TYPE_INT_RGB);
-            RenderingHints renderingHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_ON);
-            renderingHints.put(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
 
             bufferEngine = bufferedImage.createGraphics();
-            bufferEngine.setRenderingHints(renderingHints);
+            bufferEngine.setRenderingHints(buildRenderingHints());
 
             update();
             drawOnBuffer();
@@ -63,6 +60,13 @@ public class Game  {
 
             before = System.currentTimeMillis();
         }
+    }
+
+    private RenderingHints buildRenderingHints() {
+        RenderingHints renderingHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        renderingHints.put(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
+        return renderingHints;
     }
 
     private void update(){
