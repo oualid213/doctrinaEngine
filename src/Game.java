@@ -12,10 +12,14 @@ public abstract class Game {
 
     Game(){
         renderingEngine = new RenderingEngine();
-        initialize();
     }
 
     public void start(){
+        initialize();
+        run();
+    }
+
+    private void run() {
         renderingEngine.start();
         before = System.currentTimeMillis();
         while(playing){
@@ -27,6 +31,7 @@ public abstract class Game {
             before = System.currentTimeMillis();
         }
     }
+
     private void sleep(){
         try {
             Thread.sleep(getSleepTime());
