@@ -45,21 +45,28 @@ public class Game  {
             update();
             drawOnBuffer();
             drawBufferOnScreen();
-
-
-            Long sleep = SLEEP - (System.currentTimeMillis() - before);
-            if (sleep<4){
-                sleep = 4L;
-            }
-
-            try {
-                Thread.sleep(sleep);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            sleep();
 
             before = System.currentTimeMillis();
         }
+    }
+
+    private void sleep(){
+        try {
+            Thread.sleep(getSleepTime());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private long getSleepTime() {
+        Long sleep = SLEEP - (System.currentTimeMillis() - before);
+        if (sleep<4){
+            sleep = 4L;
+        }
+
+        return sleep;
     }
 
     private RenderingHints buildRenderingHints() {
