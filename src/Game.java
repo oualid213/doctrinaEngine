@@ -1,32 +1,18 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
-public class Game  {
-
-
-
+public abstract class Game {
     private static final int SLEEP = 25;
     private boolean playing = true;
-
     private Long before;
-    private int score;
-    private Ball ball;
+    private RenderingEngine renderingEngine;
 
-
-private RenderingEngine renderingEngine;
-
-
+    public abstract void update();
+    public abstract void drawOnBuffer(Graphics2D bufferEngine);
 
 
     Game(){
         renderingEngine = new RenderingEngine();
-        //jFrame.setUndecorated(true);
-        ball = new Ball(25);
     }
-
-
-
 
     public void start(){
         renderingEngine.start();
@@ -44,7 +30,6 @@ private RenderingEngine renderingEngine;
             before = System.currentTimeMillis();
         }
     }
-
     private void sleep(){
         try {
             Thread.sleep(getSleepTime());
@@ -52,14 +37,6 @@ private RenderingEngine renderingEngine;
             throw new RuntimeException(e);
         }
     }
-    public void drawOnBuffer(Graphics2D bufferEngine){
-        ball.draw(bufferEngine);
-
-        bufferEngine.setPaint(Color.WHITE);
-        bufferEngine.drawString("score" + score,10,32);
-    }
-
-
     private long getSleepTime() {
         Long sleep = SLEEP - (System.currentTimeMillis() - before);
         if (sleep<4){
@@ -68,19 +45,6 @@ private RenderingEngine renderingEngine;
 
         return sleep;
     }
-
-
-    private void update(){
-        ball.update();
-        if (ball.hasTouch()){
-            score +=5;
-        }
-    }
-
-
-
-
-
 
 
 
