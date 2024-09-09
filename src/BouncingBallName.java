@@ -12,7 +12,6 @@ public class BouncingBallName extends Game{
 
     BouncingBallName(){
         //jFrame.setUndecorated(true);
-        ball = new Ball(25);
     }
 
 
@@ -36,11 +35,8 @@ public class BouncingBallName extends Game{
         }
     }
 
-
-
-
-
-
-
-
+    @Override
+    protected void initialize() {
+        ball = new Ball(25);
+    }
 }

@@ -8,20 +8,17 @@ public abstract class Game {
 
     public abstract void update();
     public abstract void drawOnBuffer(Graphics2D bufferEngine);
-
+    protected abstract void initialize();
 
     Game(){
         renderingEngine = new RenderingEngine();
+        initialize();
     }
 
     public void start(){
         renderingEngine.start();
         before = System.currentTimeMillis();
         while(playing){
-
-
-
-
             update();
             drawOnBuffer(renderingEngine.buildBufferEngine());
             renderingEngine.drawBufferOnScreen();
@@ -45,6 +42,8 @@ public abstract class Game {
 
         return sleep;
     }
+
+
 
 
 
