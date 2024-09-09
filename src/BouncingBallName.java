@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class BouncingBallName extends Game{
+public final class BouncingBallName extends Game{
 
 
     private int score;
