@@ -5,26 +5,23 @@ import java.awt.image.BufferedImage;
 public class Game  {
 
 
-    private JFrame jFrame;
-    private JPanel jpanel;
+
     private static final int SLEEP = 25;
     private boolean playing = true;
-    private BufferedImage bufferedImage;
-    private Graphics2D bufferEngine;
+
     private Long before;
     private int score;
     private Ball ball;
 
 
-
+private RenderingEngine renderingEngine;
 
 
 
 
     Game(){
-        initializeFrame();
+        renderingEngine = new RenderingEngine();
         //jFrame.setUndecorated(true);
-        initializePanel();
         ball = new Ball(25);
     }
 
@@ -32,19 +29,16 @@ public class Game  {
 
 
     public void start(){
-        jFrame.setVisible(true);
-
+        renderingEngine.start();
         before = System.currentTimeMillis();
         while(playing){
-            bufferedImage = new BufferedImage(800,600,
-                    BufferedImage.TYPE_INT_RGB);
 
-            bufferEngine = bufferedImage.createGraphics();
-            bufferEngine.setRenderingHints(buildRenderingHints());
+
+
 
             update();
-            drawOnBuffer();
-            drawBufferOnScreen();
+            drawOnBuffer(renderingEngine.buildBufferEngine());
+            renderingEngine.drawBufferOnScreen();
             sleep();
 
             before = System.currentTimeMillis();
@@ -57,8 +51,14 @@ public class Game  {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
+    public void drawOnBuffer(Graphics2D bufferEngine){
+        ball.draw(bufferEngine);
+
+        bufferEngine.setPaint(Color.WHITE);
+        bufferEngine.drawString("score" + score,10,32);
+    }
+
 
     private long getSleepTime() {
         Long sleep = SLEEP - (System.currentTimeMillis() - before);
@@ -69,12 +69,6 @@ public class Game  {
         return sleep;
     }
 
-    private RenderingHints buildRenderingHints() {
-        RenderingHints renderingHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        renderingHints.put(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
-        return renderingHints;
-    }
 
     private void update(){
         ball.update();
@@ -84,35 +78,8 @@ public class Game  {
     }
 
 
-    private void drawOnBuffer(){
-        ball.draw(bufferEngine);
 
-        bufferEngine.setPaint(Color.WHITE);
-        bufferEngine.drawString("score" + score,10,32);
-    }
 
-    private void drawBufferOnScreen(){
-        Graphics2D graphics = (Graphics2D) jpanel.getGraphics();
-        graphics.drawImage(bufferedImage,0,0,jpanel);
-        Toolkit.getDefaultToolkit().sync();
-        graphics.dispose();
-    }
-    private void initializePanel() {
-        jpanel = new JPanel();
-        jpanel.setBackground(Color.blue);
-        jpanel.setFocusable(true);
-        jpanel.setDoubleBuffered(true);
-        jFrame.add(jpanel);
-    }
-    private void initializeFrame() {
-        jFrame = new JFrame();
-        jFrame.setSize(800,600);
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setResizable(false);
-        jFrame.setTitle("Bouncing Balls");
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setState(JFrame.NORMAL);
-    }
 
 
 
