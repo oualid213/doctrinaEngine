@@ -36,9 +36,9 @@ public class Ball {
         return hasTouchedHorizontal()
                 || hasTouchedVertical();
     }
-    public void draw(Graphics2D bufferEngine){
-        bufferEngine.setPaint(Color.red);
-        bufferEngine.fillOval(x,y,radius*2,radius*2);
+    public void draw(Canvas canvas){
+
+        canvas.drawCircle(x,y,radius,Color.RED);
 
     }
 
@@ -59,7 +59,6 @@ public class Ball {
 
 
     private int randomNumber(int min,int max){
-        // il faut l utiliser
         return new Random().nextInt((max-min)+1)+min;
     }
 }

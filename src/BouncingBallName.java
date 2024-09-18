@@ -8,23 +8,15 @@ public final class BouncingBallName extends Game{
 
 
 
-
-
     BouncingBallName(){
         //jFrame.setUndecorated(true);
     }
 
 
-
-
-
-
     @Override
-    public void drawOnBuffer(Graphics2D bufferEngine){
-        ball.draw(bufferEngine);
-
-        bufferEngine.setPaint(Color.WHITE);
-        bufferEngine.drawString("score" + score,10,32);
+    public void draw(Canvas canvas){
+        ball.draw(canvas);
+        canvas.drawString("score" + score, 10, 20,Color.WHITE);
     }
 
     @Override

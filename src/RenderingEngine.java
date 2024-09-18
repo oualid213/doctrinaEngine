@@ -51,13 +51,13 @@ public class RenderingEngine {
     }
 
 
-    public Graphics2D buildBufferEngine() {
+    public Canvas buildCanvas() {
         bufferedImage = new BufferedImage(800,600,
                 BufferedImage.TYPE_INT_RGB);
 
         bufferEngine = bufferedImage.createGraphics();
         bufferEngine.setRenderingHints(buildRenderingHints());
-        return bufferEngine;
+        return new Canvas(bufferEngine);
     }
     private RenderingHints buildRenderingHints() {
         RenderingHints renderingHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
