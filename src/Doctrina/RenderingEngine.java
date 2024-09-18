@@ -2,6 +2,7 @@ package Doctrina;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class RenderingEngine {
@@ -66,6 +67,10 @@ public class RenderingEngine {
                 RenderingHints.VALUE_ANTIALIAS_ON);
         renderingHints.put(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
         return renderingHints;
+    }
+
+    public void addKeyListener(KeyListener keyListener){
+        jpanel.addKeyListener(keyListener);
     }
 
 

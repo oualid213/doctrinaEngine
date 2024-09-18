@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class MovingRectangleGame extends Game{
 
+    private Controller controller;
+
         private Player player;
         private NPC npc;
     @Override
@@ -26,7 +28,9 @@ public class MovingRectangleGame extends Game{
 
     @Override
     protected void initialize() {
-        player = new Player();
+        controller = new Controller();
+        super.addKeyListener(controller);
+        player = new Player(controller);
         npc = new NPC();
 
     }
