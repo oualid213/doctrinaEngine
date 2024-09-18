@@ -16,7 +16,10 @@ public final class BouncingBallName extends Game{
     @Override
     public void draw(Canvas canvas){
         ball.draw(canvas);
+
         canvas.drawString("score" + score, 10, 20,Color.WHITE);
+        canvas.drawString(GameTime.getElapsedFormatTime(),10,40,Color.WHITE);
+        canvas.drawString("FPS: " + GameTime.getCurrentFps(),10,60,Color.WHITE);
     }
 
     @Override
