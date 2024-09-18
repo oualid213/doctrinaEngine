@@ -1,16 +1,14 @@
+package BouncingBall;
+
+import Doctrina.Canvas;
+import Doctrina.Game;
+import Doctrina.GameTime;
+
 import java.awt.*;
 
-public final class BouncingBallName extends Game{
-
-
+public final class BouncingBallName extends Game {
     private int score;
     private Ball ball;
-
-
-
-    BouncingBallName(){
-        //jFrame.setUndecorated(true);
-    }
 
 
     @Override

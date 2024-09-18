@@ -1,3 +1,5 @@
+package Doctrina;
+
 public abstract class Game {
     private boolean playing = true;
     private RenderingEngine renderingEngine;
@@ -6,7 +8,7 @@ public abstract class Game {
     public abstract void draw(Canvas canvas);
     protected abstract void initialize();
 
-    Game(){
+    public Game(){
         renderingEngine = new RenderingEngine();
     }
 
