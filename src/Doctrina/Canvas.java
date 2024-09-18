@@ -21,7 +21,7 @@ public class Canvas {
     }
     public void drawRectangle( int x, int y ,int width,int height,Paint paint){
         graphics.setPaint(paint);
-        graphics.fillOval(x,y,width,height);
+        graphics.fillRect(x,y,width,height);
     }
 
 
