@@ -27,7 +27,6 @@ public class FootPrintGame extends Game {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawRectangle(0,0,800,600, Color.blue);
-
         for (FootPrint footPrint : footPrints){
             footPrint.draw(canvas);
         }
