@@ -33,4 +33,8 @@ public class Player {
     public void draw(Canvas canvas){
         canvas.drawRectangle(x,y,20,60, Color.white);
     }
+
+    public FootPrint layFootPrint(){
+        return new FootPrint(x,y);
+    }
 }
