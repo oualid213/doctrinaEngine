@@ -1,18 +1,18 @@
 package MovingRectangle;
 
 import Doctrina.Canvas;
+import Doctrina.Controller;
 
 import java.awt.*;
-import java.util.SplittableRandom;
 
 public class Player {
-    private Controller controller;
+    private GamePad controller;
     private int x;
     private int y;
 
     private int speed;
 
-    public Player(Controller controller){
+    public Player(GamePad controller){
         this.controller = controller;
         x = 200;
         y = 200;

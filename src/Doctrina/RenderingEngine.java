@@ -10,11 +10,19 @@ public class RenderingEngine {
     private JPanel jpanel;
     private BufferedImage bufferedImage;
     private Graphics2D bufferEngine;
+    private static RenderingEngine INSTANCE;
 
 
-    RenderingEngine(){
+     private RenderingEngine(){
         initializeFrame();
         initializePanel();
+    }
+
+    public static RenderingEngine getINSTANCE(){
+         if (INSTANCE == null){
+             INSTANCE = new RenderingEngine();
+         }
+         return INSTANCE;
     }
 
     private void initializePanel() {
