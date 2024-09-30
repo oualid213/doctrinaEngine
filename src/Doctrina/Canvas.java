@@ -24,6 +24,12 @@ public class Canvas {
         graphics.fillRect(x,y,width,height);
     }
 
+    public void drawRectangle( StaticEntity entity,Paint paint){
+        graphics.setPaint(paint);
+        drawRectangle(entity.x,entity.y,entity.width,entity.height,paint);
+    }
+
+
 
 
 }
