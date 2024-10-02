@@ -1,12 +1,12 @@
 package Doctrina;
 
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
 public class MovementController extends Controller{
 
     private int upKey = KeyEvent.VK_UP;
     private int downKey = KeyEvent.VK_DOWN;
-
     private int rightKey = KeyEvent.VK_RIGHT;
     private int leftKey = KeyEvent.VK_LEFT;
 
@@ -15,6 +15,12 @@ public class MovementController extends Controller{
         findKey(downKey);
         findKey(leftKey);
         findKey(rightKey);
+    }
+    public void useWASDKeys(){
+        setUpKey(KeyEvent.VK_W);
+        setDownKey(KeyEvent.VK_S);
+        setLeftKey(KeyEvent.VK_A);
+        setRightKey(KeyEvent.VK_D);
     }
     public Direction getDirection(){
         if (isLeftPressed()){

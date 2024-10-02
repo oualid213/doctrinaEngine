@@ -9,12 +9,11 @@ import java.awt.*;
 
 public class Player  extends ControllableEntity {
 
-
     public Player(GamePad gamePad){
         super(gamePad);
         teleport(200,200);
         setDimension(20,20);
-        setSpeed(20);
+        setSpeed(5);
     }
     @Override
     public void update(){moveWidthController();}
