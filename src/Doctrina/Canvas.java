@@ -4,9 +4,6 @@ import java.awt.*;
 
 public class Canvas {
     private Graphics2D graphics;
-
-
-
     Canvas(Graphics2D graphics){
         this.graphics = graphics;
     }
@@ -28,8 +25,5 @@ public class Canvas {
         graphics.setPaint(paint);
         drawRectangle(entity.x,entity.y,entity.width,entity.height,paint);
     }
-
-
-
 
 }
