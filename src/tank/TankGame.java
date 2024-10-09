@@ -15,6 +15,7 @@ public class TankGame extends Game {
     @Override
     public void update() {
         if (gamePad.isQuitPressed()){
+
             stop();
         }
         if (gamePad.isFirePressed() && tank.canFire()){
