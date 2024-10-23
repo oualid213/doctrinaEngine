@@ -1,11 +1,10 @@
 package Doctrina;
 
-import java.awt.event.KeyListener;
-
 public abstract class Game {
     private boolean playing = true;
     private final RenderingEngine renderingEngine;
     private final GameTime gameTime = new GameTime();
+
 
     public abstract void update();
     public abstract void draw(Canvas canvas);

@@ -15,7 +15,7 @@ public class CollidibaleRepository implements Iterable<StaticEntity>{
 
     public static CollidibaleRepository getInstance(){
         if(instance == null){
-            return new CollidibaleRepository();
+            instance = new  CollidibaleRepository();
         }
         return instance;
     }
@@ -40,6 +40,4 @@ public class CollidibaleRepository implements Iterable<StaticEntity>{
     public Iterator<StaticEntity> iterator() {
         return registeredEntity.iterator();
     }
-
-
 }

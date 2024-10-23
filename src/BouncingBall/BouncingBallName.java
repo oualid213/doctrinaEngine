@@ -21,15 +21,16 @@ public final class BouncingBallName extends Game {
     }
 
     @Override
+    protected void initialize() {
+        ball = new Ball(25);
+
+    }
+
+    @Override
     public void update(){
         ball.update();
         if (ball.hasTouch()){
             score +=5;
         }
-    }
-
-    @Override
-    protected void initialize() {
-        ball = new Ball(25);
     }
 }

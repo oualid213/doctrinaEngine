@@ -37,6 +37,7 @@ public class Tank extends ControllableEntity {
     canvas.drawRectangle(this, Color.GREEN);
     int coolDownWidth = (coolDown * width)/40;
     canvas.drawRectangle(x,y -5, coolDownWidth, 2, Color.red);
+    drawHitBox(canvas);
     }
 
 

@@ -2,6 +2,7 @@ package tank;
 
 import Doctrina.Canvas;
 import Doctrina.Game;
+import Doctrina.StaticEntity;
 
 import java.util.ArrayList;
 
@@ -24,9 +25,25 @@ public class TankGame extends Game {
         }
         tank.update();
 
+        ArrayList<StaticEntity> killedEntities = new ArrayList<>();
+
         for (Missile missile : missiles) {
             missile.update();
+            for (Brick brick : bricks){
+                if (missile.hitBoxIntersectWith(brick)){
+                    killedEntities.add(missile);
+                    killedEntities.add(brick);
+                }
+            }
+        }
 
+        for (StaticEntity killedEntity : killedEntities){
+            if (killedEntity instanceof Brick){
+                bricks.remove(killedEntity);
+            }
+            if (killedEntity instanceof Missile){
+                missiles.remove(killedEntity);
+            }
         }
 
     }

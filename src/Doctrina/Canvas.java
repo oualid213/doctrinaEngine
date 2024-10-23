@@ -16,6 +16,11 @@ public class Canvas {
         graphics.setPaint(paint);
         graphics.fillOval(x,y,radius*2,radius*2);
     }
+
+    public void drawImage(Image image, int x, int y){
+        graphics.drawImage(image, x, y, null);
+
+    }
     public void drawRectangle( int x, int y ,int width,int height,Paint paint){
         graphics.setPaint(paint);
         graphics.fillRect(x,y,width,height);

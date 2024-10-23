@@ -33,7 +33,6 @@ public class Missile extends MovableEntity {
         if (direction == Direction.UP){
             setDimension(8,4);
             teleport(tank.getX() + 15 -2, tank.getY() + 15 -9);
-
         }
     }
     @Override
